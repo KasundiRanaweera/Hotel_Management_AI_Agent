@@ -28,6 +28,11 @@ htmlcov/
 # Jupyter temporary files and checkpoints
 .ipynb_checkpoints/
 
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
 # Environment files and local secrets
 .env
 .env.*
