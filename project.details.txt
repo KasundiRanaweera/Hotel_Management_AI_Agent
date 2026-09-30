@@ -1,0 +1,155 @@
+Hotel Management AI Agent
+Student Project Brief: Requirements & Specifications
+
+1. Project Overview
+
+A small hotel wants a chat-based AI assistant for its front desk. Staff type normal sentences, for example "Register a new guest, Jane Smith, room 204", and the assistant manages the guest's customer record. Your task is to build an AI agent that can collect customer details, save them, look them up, update them and delete them.
+
+2. Learning Goals
+
+• Build an AI agent that uses tools to work with stored data.
+• Design a conversation that asks for missing information instead of guessing.
+• Protect data from mistakes by asking for confirmation before anything is deleted.
+
+3. Scope
+
+In scope:
+• Add, view, update and delete customer records by chat
+• Keeping records saved permanently
+• Checking that the details entered are valid
+
+Out of scope:
+• Online payments or billing
+• Room availability and pricing
+• Staff logins and user accounts
+• A full website or mobile app
+
+4. Functional Requirements
+
+FR1 Collect details.
+When staff want to add a customer, the agent asks for the required details in conversation (one or two at a time, not a long form). It must never guess or invent missing details.
+Priority: Must
+
+FR2 Save.
+When all required details are valid, the agent saves a new customer record with an automatic unique ID and shows a short confirmation.
+Priority: Must
+
+FR3 View.
+Staff can find a customer by ID or by name and see their details. If nobody matches, the agent says so. If several customers match, it asks which one is meant.
+Priority: Must
+
+FR4 Update.
+Staff can change one or more details of an existing customer. The agent shows what changed. The customer ID can never be changed.
+Priority: Must
+
+FR5 Delete.
+The agent asks for confirmation before deleting. Nothing is deleted without a clear "yes", and "no" cancels the action.
+Priority: Must
+
+FR6 Validation.
+The agent rejects invalid data (see Section 6), explains why in simple words, and asks for a correction.
+Priority: Must
+
+FR7 Permanent storage.
+Saved records are still there after the program is closed and started again.
+Priority: Must
+
+FR8 Honest replies.
+The agent only says an action was done after it really succeeded. Problems are explained in friendly, plain language.
+Priority: Must
+
+FR9 Stay on topic.
+For requests unrelated to customer records, the agent politely explains what it can help with.
+Priority: Should
+
+5. Agent Behaviour Rules
+
+• Replies are polite, short and professional.
+• Ask for missing details in small steps; do not ask for everything at once.
+• Repeat back what was saved, changed or deleted, so staff can check it.
+• Show only the customer records the staff member asked for.
+
+6. Customer Data Specification
+
+Customer ID
+Type: Whole number
+Required: Auto
+Rules: Created automatically. Unique. Never changes.
+
+Full name
+Type: Text
+Required: Yes
+Rules: Cannot be empty.
+
+Phone number
+Type: Text
+Required: Yes
+Rules: 9 to 15 digits. May start with +.
+
+Email
+Type: Text
+Required: No
+Rules: If given, it must look like a real email address.
+
+Room number
+Type: Text
+Required: Yes
+Rules: For example 101 or A12.
+
+Check-in date
+Type: Date
+Required: Yes
+Rules: Format YYYY-MM-DD.
+
+Check-out date
+Type: Date
+Required: Yes
+Rules: Format YYYY-MM-DD. Must be after the check-in date.
+
+Special requests
+Type: Text
+Required: No
+Rules: Free text, for example "late check-in".
+
+7. Example Conversations (expected behaviour)
+
+Example A: add a customer
+
+Staff: Register a new guest, Jane Smith, room 204.
+
+Agent: Happy to help. What is Jane's phone number, and her check-in and check-out dates?
+
+Staff: 0712345678, from 2026-10-01 to 2026-10-04.
+
+Agent: Saved! Customer #1: Jane Smith, room 204, 1 to 4 October 2026.
+
+Example B: delete a customer
+
+Staff: Delete customer 1.
+
+Agent: Do you really want to delete Jane Smith (room 204)? Please reply yes or no.
+
+Staff: yes
+
+Agent: Done. Customer #1 has been deleted.
+
+8. Technical Constraints
+
+• Language: Python. Interface: a simple chat window.
+• The AI model must decide when to save, look up, update or delete by calling tools (function calling).
+• Storage: a local database (SQLite is recommended).
+• Keep it small: one notebook or one script is enough.
+
+9. Deliverables and Acceptance Checklist
+
+• A working agent that runs from start to finish without errors.
+• All four operations work through chat: save, view, update, delete.
+• Records are still there after restarting the program.
+• A short demo (screenshots or screen recording) showing each operation, one rejected invalid input, and one cancelled delete.
+
+10. Bonus Ideas (optional)
+
+• List all customers
+• Search by check-in date
+• Export the customer list as a PDF
+• Handle duplicate names
