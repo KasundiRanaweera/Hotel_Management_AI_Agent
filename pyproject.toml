@@ -1,0 +1,17 @@
+[project]
+name = "hotel-management-ai-agent"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Kasundi Ranaweera", email = "kasundiranaweera@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = []
+
+[project.scripts]
+hotel-management-ai-agent = "hotel_management_ai_agent:main"
+
+[build-system]
+requires = ["uv_build>=0.12.19,<0.13.0"]
+build-backend = "uv_build"
