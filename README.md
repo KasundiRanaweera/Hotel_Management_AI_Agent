@@ -20,6 +20,7 @@ instead of guessing, and protects data from accidental loss.
   - `"ollama"` → local **llama3.1:8b**, served through [Ollama](https://ollama.com)
   - `"groq"` → **openai/gpt-oss-120b** via the [Groq](https://groq.com) API
 - **SQLite** — local, file-based persistent storage (`hotel.db`)
+- **fpdf2** — PDF export for the customer list
 - **Gradio** — chat interface (`ChatInterface`)
 - **uv** — Python environment and dependency management
 
@@ -102,16 +103,16 @@ The `demo/` folder contains screenshots covering:
 - A rejected invalid phone number and an invalid date range
 - A confirmed delete and a cancelled delete
 - Off-topic requests being politely redirected
-- A persistence check after restarting the kernel
+- Persistence is verified by the SQLite database surviving kernel restarts
 
 ## Out of scope (per assignment brief)
 
 Online payments or billing, room availability/pricing, staff logins, and a
 full website or mobile app are explicitly excluded.
 
-## Possible extensions (bonus ideas)
+## Implemented bonus features
 
 - List all customers
 - Search by check-in date
 - Export the customer list as a PDF
-- Smarter handling of duplicate names
+- Duplicate-name warnings when saving a customer
