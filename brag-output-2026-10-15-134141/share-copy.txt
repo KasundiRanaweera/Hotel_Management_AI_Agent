@@ -1,0 +1,1 @@
+Built a hotel front desk you just talk to. In 70 seconds the AI agent adds, finds, updates, lists, searches, exports and deletes guest records from plain sentences, refuses bad phone numbers and check-outs before check-ins, won't delete without a yes, and won't quote you a room price. Python + SQLite + Gradio, runs locally on Llama 3.1 via Ollama.
